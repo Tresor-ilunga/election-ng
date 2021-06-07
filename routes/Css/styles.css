@@ -1,0 +1,57 @@
+body
+{
+    text-align: center;
+    background-color: #fff;
+}
+#imagecss
+{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 30%;
+}
+#headerSection
+{
+    padding: 5px;
+}
+#headerSection h1
+{
+    font-family: cursive;
+}
+input
+{
+    padding: 10px;
+    border-radius: 5px;
+}
+#adress
+{
+    width: 30%;
+}
+#imagepart
+{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 30%;
+}
+#role
+{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10x;
+    width: 30%;
+}
+#role select
+{
+    border-radius: 5px;
+    padding: 10px;
+}
+#buttonbtn
+{
+    padding: 5px;
+    font-size: 15px;
+    background-color: #147AF5;
+    color: #fff;
+    border-radius: 5px;
+
+}

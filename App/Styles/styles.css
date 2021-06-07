@@ -1,0 +1,52 @@
+body
+{
+    background-color: cadetblue;
+}
+#backbtn
+{
+    padding: 5px;
+    font-size: 15px;
+    border-color: #fff;
+    color: blue;
+    border-radius: 5px;
+    float: left;
+}
+#logoutbtn
+{
+    padding: 5px;
+    font-size: 15px;
+    border-color: #fff;
+    color: blue;
+    border-radius: 5px;
+    float: right;
+}
+#headerSection
+{
+    padding: 5px;
+}
+#headerSection h1
+{
+    text-align: center;
+    font-family: cursive;
+}
+#Profile
+{
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    float: left;
+}
+#Group
+{
+    background-color: #fff;
+    width: 60%;
+    padding: 20px;
+    float: right;
+}
+#votebtn
+{
+    padding: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+}
