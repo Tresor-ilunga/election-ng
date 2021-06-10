@@ -1,4 +1,7 @@
 <?php
+
+use App\Connection;
+
 session_start();
 if(!isset($_SESSION['userdata']))
 {
@@ -47,7 +50,12 @@ else
     </div>
     <div id="Group"></div>
         <?php
-
+        $con = Connection::getPDO();
+        /* Recupere les donnees de ta base des donnees comme ceci        */
+        $requete = $con->query("SELECT * FROM membres ORDER BY /* la colone ou tu enregistre les voix dans la bdd */ ");
+        $candidats = $requete->fetchAll(PDO::FETCH_OBJ);
+        /* Deja ce code recupere les elements dans ta bdd */
+        
         if($_SESSION['grousdata'])
         {
             for($i = 0; $i < count($groupsdata); $i++)

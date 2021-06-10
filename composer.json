@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/"
+        }
+    },
+    "name": "tresor/ng",
+    "authors": [
+        {
+            "name": "wilfried musanzi",
+            "email": "musanziwilfried@gmail.com"
+        }
+    ],
+    "require": {}
+}
