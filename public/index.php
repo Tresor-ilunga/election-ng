@@ -1,26 +1,32 @@
 <?php
 
-use App\Connection;
+    use App\Candidat;
+    use App\Connection;
+    $con = Connection::getPDO();
+    /* Recupere les donnees de ta base des donnees comme ceci        */
+    $requete = $con->query("SELECT * FROM membres ORDER BY /* la colone ou tu enregistre les voix dans la bdd */ ");
+    $candidats = $requete->fetchAll(PDO::FETCH_CLASS,Candidat::class);
+    /* Deja ce code recupere les elements dans ta bdd */
 
-session_start();
-if(!isset($_SESSION['userdata']))
-{
-    header("location:");
-}
+    session_start();
+    if(!isset($_SESSION['userdata']))
+    {
+        header("location:");
+    }
 
-$userdata = $_SESSION['userdata'];
-$groupsdata = $_SESSION['groupsdata'];
+    $userdata = $_SESSION['userdata'];
+    $groupsdata = $_SESSION['groupsdata'];
 
-if($userdata['status']==0)
-{
-    $status = '<b style="color: red;">Not voted</b>';
-}
-else
-{
-    $status = '<b style="color: green;">Voted</b>';
-}
+    if($userdata['status']==0)
+    {
+        $status = '<b style="color: red;">Not voted</b>';
+    }
+    else
+    {
+        $status = '<b style="color: green;">Voted</b>';
+    }
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,39 +55,20 @@ else
         
     </div>
     <div id="Group"></div>
-        <?php
-        $con = Connection::getPDO();
-        /* Recupere les donnees de ta base des donnees comme ceci        */
-        $requete = $con->query("SELECT * FROM membres ORDER BY /* la colone ou tu enregistre les voix dans la bdd */ ");
-        $candidats = $requete->fetchAll(PDO::FETCH_OBJ);
-        /* Deja ce code recupere les elements dans ta bdd */
-        
-        if($_SESSION['grousdata'])
-        {
-            for($i = 0; $i < count($groupsdata); $i++)
-            {
-                ?>
-                <div>
-                    <img src="uploads/<?php echo $groupsdata[$i]['photo'] ?>" height="100" whidth="100">
-                    <b>Group Name :<?php echo $groupsdata[$i]['name'] ?> <br>
-                    <b>Votes :</b></b><?php echo $groupsdata[$i]['votes'] ?> <br>
-                    <form action="#">
-                        <input type="hidden" name="gvotes" value="<?php echo $groupsdata[$i]['votes'] ?>">
-                        <input type="submit" id="votebtn" name="gvotes" value="vote">
-                    </form>
-                </div>
-                <hr>
-                <?php
-            }
-        }
-        else
-        {
-        }
-    
-    
+        <?php if($_SESSION['grousdata']): ?>
+                <?php foreach ($candidats as $candidat) :?>
+                    <div>
+                        <img src="uploads/<?php echo $groupsdata[$i]['photo'] ?>" height="100" whidth="100">
+                        <b>Group Name :<?= $candidat->getName(); ?> <br>
+                        <b>Votes :</b></b><?php echo $groupsdata[$i]['votes'] ?> <br>
+                        <form action="#">
+                            <input type="hidden" name="gvotes" value="<?php echo $groupsdata[$i]['votes'] ?>">
+                            <input type="submit" id="votebtn" name="gvotes" value="vote">
+                        </form>
+                    </div>
+                    <hr>
+                <?php endforeach ?>
 
-   
-
-        ?>
+        <?php endif ?>
     </body>
 </html>        
